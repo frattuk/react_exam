@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  background-color: white;
+  width: 100%;
+}
+.navbar a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar__header {
+  margin: 20px;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+.navbar__login {
+  margin-left: auto;
+  margin-right: 40px;
+}
+.container {
+  width: 800px;
+  display: flex;
+  align-items: center;
+}
