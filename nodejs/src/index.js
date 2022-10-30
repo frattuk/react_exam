@@ -9,12 +9,17 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/v1/auth/", auth);
-app.use("/v1/content/", content);
+app.use("/auth", auth);
+app.use("/content/", content);
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send({ msg: "Server is running" });
 });
+
+// http://localhost:3001/questions - GET, POST
+// http://localhost:3001/questions/user/:id  - GET
+// http://localhost:3001/questions/:id - DELETE
+// http://localhost:3001/auth - POST for login session ???
 
 app.all("*", (req, res) => {
   res.status(404).send({ error: "Page not found" });

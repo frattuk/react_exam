@@ -3,12 +3,11 @@ const mysql = require("mysql2/promise");
 const Joi = require("joi");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
 const { dbconfig, jwtSecret } = require("../../config");
-
 const router = express.Router();
 
 const userSchema = Joi.object({
+  name: Joi.string().required(),
   email: Joi.string().email().trim().lowercase().required(),
   password: Joi.string().required(),
 });
@@ -26,14 +25,15 @@ router.post("/registration", async (req, res) => {
     const con = await mysql.createConnection(dbconfig);
 
     const response = await con.execute(
-      `INSERT INTO users (email, password) values (${mysql.escape(
-        userData.email
-      )}, '${hashedPassword}')`
+      `INSERT INTO users (name, email, password) values (${mysql.escape(
+        userData.name
+      )}, ${mysql.escape(userData.email)}, '${hashedPassword}')`
     );
 
     res.send(response[0]);
     await con.end();
   } catch (e) {
+    console.log(e);
     res.status(500).send({ error: "Server error" });
   }
 });
@@ -75,6 +75,19 @@ router.post("/login", async (req, res) => {
     }
   } catch (e) {
     res.status(500).send({ error: "Server error" });
+  }
+});
+
+router.get("/users/:id", async (req, res) => {
+  try {
+    const con = await mysql.createConnection(dbconfig);
+    const response = await con.execute(
+      `SELECT * FROM users WHERE id=${req.params.id};`
+    );
+    res.send(response[0]);
+    await con.end();
+  } catch (e) {
+    console.log(e);
   }
 });
 

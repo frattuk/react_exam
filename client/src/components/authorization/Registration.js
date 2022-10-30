@@ -33,7 +33,7 @@ const Registration = () => {
         className="registration__btn"
         onClick={() => registration(email, password)}
       >
-        Įvesti
+        Registruotis
       </button>
     </div>
   );

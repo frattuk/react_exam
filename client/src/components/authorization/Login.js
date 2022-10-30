@@ -22,7 +22,7 @@ const Login = () => {
         type="password"
         placeholder="Slaptažodis..."
       />
-      <button className="authorization__btn">Įeiti</button>
+      <button className="authorization__btn">Prisijungti</button>
     </div>
   );
 };
