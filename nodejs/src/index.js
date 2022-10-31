@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/auth", auth);
+app.use("/", auth);
 app.use("/content/", content);
 
 app.get("/api", (req, res) => {
