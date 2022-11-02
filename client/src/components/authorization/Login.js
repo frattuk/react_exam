@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import "./registration.css";
-import Input from "../../utils/Input";
+import Input from "../utils/Input";
 
-const Login = (props) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const loginFunction = (e) => {
-    e.preventDefault();
+  const loginFunction = (event) => {
+    event.preventDefault();
     const option = {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        email: e.target.elements[0].value,
-        password: e.target.elements[1].value,
+        email: event.target.elements[0].value,
+        password: event.target.elements[1].value,
       }),
     };
 
@@ -26,13 +26,14 @@ const Login = (props) => {
           return alert("Incorrect details");
         } else {
           localStorage.setItem("token", data.token);
-          alert("Logged in");
+          alert("Sėkmingai prisijungėte!");
         }
-      });
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
-    <form onSubmit={(e) => loginFunction(e)}>
+    <form onSubmit={(event) => loginFunction(event)}>
       <div className="authorization">
         <div className="authorization__header">Prisijungti</div>
         <Input

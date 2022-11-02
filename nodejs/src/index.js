@@ -12,9 +12,9 @@ app.use(cors());
 app.use("/", auth);
 app.use("/content/", content);
 
-app.get("/api", (req, res) => {
-  res.send({ msg: "Server is running" });
-});
+// app.get("/api", (req, res) => {
+//   res.send({ msg: "Server is running" });
+// });
 
 // http://localhost:3001/questions - GET, POST
 // http://localhost:3001/questions/user/:id  - GET
