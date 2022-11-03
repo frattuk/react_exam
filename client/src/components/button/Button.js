@@ -1,40 +1,24 @@
 import styled from "styled-components";
 
 const ContainedButton = styled.button`
-  background-color: lightgray;
-  border: 1px solid lightgray;
-  padding: 10px 24px;
-  border-radius: 4px;
+  border: none;
+  background-color: #9999b9;
+  border-radius: 8px;
   color: white;
-  font-size: 14px;
-  text-transform: uppercase;
   font-weight: 500;
+  padding: 7px 12px;
+  align-self: center;
+  margin-top: 10px;
   cursor: pointer;
   &:hover {
     opacity: 0.8;
   }
 `;
-// const OutlinedButton = styled.button`
-//   background-color: white;
-//   border: 1px solid #eb5d05;
-//   padding: 10px 24px;
-//   border-radius: 4px;
-//   color: #eb5d05;
-//   font-size: 14px;
-//   text-transform: uppercase;
-// `;
-
-// const Button = (props) => {
-//   return props.variant === "contained" ? (
-//     <StyledOrangeButton>{props.children}</StyledOrangeButton>
-//   ) : (
-//     <StyledWhiteButton>{props.children}</StyledWhiteButton>
-//   );
-// };
 
 const Outlined = styled(ContainedButton)`
-  background-color: #ffffff;
-  color: #eb5d05;
+  background-color: #f8f2e9;
+  border: 1px solid #9999b9;
+  color: #9999b9;
 `;
 
 const Button = ({ children, type }) => {

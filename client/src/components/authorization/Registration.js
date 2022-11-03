@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./registration.css";
 import Input from "../utils/Input";
+import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const registerFunction = (event) => {
     event.preventDefault();
     const option = {
@@ -22,10 +23,11 @@ const Registration = () => {
     fetch("http://localhost:3001/registration", option)
       .then((res) => res.json())
       .then((response) => {
-        if (response.err) {
-          return alert("Incorrect details");
+        if (response.error) {
+          alert("Toks el.paštas jau užregistruotas");
         } else {
           alert("Sėkmingai užsiregitravote!");
+          navigate("/");
         }
       })
       .catch((error) => console.error(error));

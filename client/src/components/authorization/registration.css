@@ -2,18 +2,19 @@
 .authorization {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 400px;
   align-items: center;
-  background-color: white;
-  border-radius: 20px;
+  background-color: #f8f2e9;
+  border-radius: 30px;
   padding: 30px;
   align-self: center;
   margin-top: 100px;
 }
 .registration__header,
 .authorization__header {
+  padding-bottom: 8px;
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 500;
 }
 .registration input,
 .authorization input {
@@ -22,11 +23,12 @@
 .registration__btn,
 .authorization__btn {
   border: none;
-  background-color: #566885;
+  background-color: #9999b9;
   border-radius: 8px;
   color: white;
-  font-weight: 700;
-  padding: 5px 10px;
+  font-weight: 500;
+  padding: 7px 12px;
   align-self: center;
   margin-top: 10px;
+  cursor: pointer;
 }
