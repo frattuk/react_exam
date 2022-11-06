@@ -56,7 +56,7 @@ const Login = () => {
             type="password"
             placeholder="Slaptažodis..."
           />
-          <Button className="authorization__btn">Prisijungti</Button>
+          <Button className="authorization__btn"> Prisijungti </Button>
 
           <Link to="/registration">
             <Button type="outlined" className="authorization__btn">

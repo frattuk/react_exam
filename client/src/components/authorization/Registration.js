@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./registration.css";
 import Input from "../utils/Input";
 import { useNavigate } from "react-router-dom";
+import Button from "../button/Button";
 
 const Registration = () => {
   const [email, setEmail] = useState("");
@@ -50,13 +51,13 @@ const Registration = () => {
           type="password"
           placeholder="Slaptažodis..."
         />
-        <button
+        <Button
           type="submit"
           className="registration__btn"
           // onClick={() => registerFunction(email, password)}
         >
           Registruotis
-        </button>
+        </Button>
       </div>
     </form>
   );

@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const { port } = require("./config");
-const { auth, content } = require("./routes/v1");
+const { auth, content, tweets } = require("./routes/v1");
 
 const app = express();
 
@@ -11,6 +11,9 @@ app.use(cors());
 
 app.use("/", auth);
 app.use("/content/", content);
+
+app.use("/", tweets);
+app.delete("/", tweets);
 
 // app.get("/api", (req, res) => {
 //   res.send({ msg: "Server is running" });

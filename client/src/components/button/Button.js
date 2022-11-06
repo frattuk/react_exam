@@ -19,6 +19,7 @@ const Outlined = styled(ContainedButton)`
   background-color: #f8f2e9;
   border: 1px solid #9999b9;
   color: #9999b9;
+  margin-left: 12px;
 `;
 
 const Button = ({ children, type }) => {

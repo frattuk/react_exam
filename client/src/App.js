@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "./components/navbar/Navbar";
 import "./app.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Registration from "./components/authorization/Registration";
 import Login from "./components/authorization/Login";
 import Home from "./pages/Home/Home";
+import Questions from "./pages/Guestions/Questions";
 
 const App = () => {
   const isAuthenticated = localStorage.getItem("token");
@@ -13,7 +14,10 @@ const App = () => {
     { path: "/", Component: Login },
     { path: "/registration", Component: Registration },
   ];
-  const mainRoutes = [{ path: "/", Component: Home }];
+  const mainRoutes = [
+    { path: "/", Component: Home },
+    { path: "/questions", Component: Questions },
+  ];
   const routes = isAuthenticated ? mainRoutes : authRoutes;
 
   return (
@@ -31,6 +35,7 @@ const App = () => {
 
             <Route path="/login" element={<Login />} /> */}
           </Routes>
+          {/* <Questions /> */}
         </div>
       </div>
     </BrowserRouter>
