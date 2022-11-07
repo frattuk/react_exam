@@ -7,7 +7,6 @@ const defaultStyle = {
   width: "500px",
   backgroundColor: "white",
 };
-
 const AutoHeightTextarea = ({ style = defaultStyle, ...etc }) => {
   const textareaRef = useRef(null);
   const [currentValue, setCurrentValue] = useState("");

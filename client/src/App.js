@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Registration from "./components/authorization/Registration";
 import Login from "./components/authorization/Login";
 import Home from "./pages/Home/Home";
-import Questions from "./pages/Guestions/Questions";
+import Questions from "./pages/Questions/Questions";
 
 const App = () => {
   const isAuthenticated = localStorage.getItem("token");

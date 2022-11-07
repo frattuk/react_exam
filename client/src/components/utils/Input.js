@@ -14,9 +14,9 @@ const StyledInput = styled(AuthInput)`
   padding: 5px;
 `;
 
-const Input = (props, children, type) => {
+const Input = (props, type) => {
   if (type === "styled") {
-    return <StyledInput>{children}</StyledInput>;
+    return <StyledInput />;
   } else {
     return (
       <AuthInput
