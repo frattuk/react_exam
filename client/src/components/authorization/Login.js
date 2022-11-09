@@ -28,6 +28,7 @@ const Login = () => {
           alert("Netinkamas el paštas ar slaptažodis");
         } else {
           localStorage.setItem("token", data.token);
+          localStorage.setItem("user_id", data.id);
           console.log(data);
           alert("Sėkmingai prisijungėte!");
           window.location.reload();

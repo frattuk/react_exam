@@ -72,7 +72,7 @@ router.post("/login", async (req, res) => {
         jwtSecret
       );
 
-      res.send({ token });
+      res.send({ token, id: response[0].id });
     } else {
       res.status(400).send({ error: "Incorrect password" });
     }

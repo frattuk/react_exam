@@ -22,11 +22,11 @@ const Outlined = styled(ContainedButton)`
   margin-left: 12px;
 `;
 
-const Button = ({ children, type }) => {
+const Button = ({ onClick, children, type }) => {
   if (type === "outlined") {
-    return <Outlined>{children}</Outlined>;
+    return <Outlined onClick={onClick}>{children}</Outlined>;
   } else {
-    return <ContainedButton>{children}</ContainedButton>;
+    return <ContainedButton onClick={onClick}>{children}</ContainedButton>;
   }
 };
 
