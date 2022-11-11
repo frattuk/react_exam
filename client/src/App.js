@@ -6,10 +6,11 @@ import Registration from "./components/authorization/Registration";
 import Login from "./components/authorization/Login";
 import Home from "./pages/Home/Home";
 import Questions from "./pages/Questions/Questions";
+import Answers from "./pages/Answers/Answers";
 
 const App = () => {
   const isAuthenticated = localStorage.getItem("token");
-  // const routes = isAuthenticated ? <Home/> : <Registration/>
+
   const authRoutes = [
     { path: "/", Component: Login },
     { path: "/registration", Component: Registration },
@@ -17,6 +18,7 @@ const App = () => {
   const mainRoutes = [
     { path: "/", Component: Home },
     { path: "/questions", Component: Questions },
+    { path: "/answers", Component: Answers },
   ];
   const routes = isAuthenticated ? mainRoutes : authRoutes;
 
@@ -29,13 +31,7 @@ const App = () => {
             {routes.map((route) => (
               <Route path={route.path} element={<route.Component />} />
             ))}
-
-            {/* <Route path="/" element={<Home />} />
-            <Route path="/registration" element={<Registration />} />
-
-            <Route path="/login" element={<Login />} /> */}
           </Routes>
-          {/* <Questions /> */}
         </div>
       </div>
     </BrowserRouter>

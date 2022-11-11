@@ -51,11 +51,7 @@ const Registration = () => {
           type="password"
           placeholder="Slaptažodis..."
         />
-        <Button
-          type="submit"
-          className="registration__btn"
-          // onClick={() => registerFunction(email, password)}
-        >
+        <Button type="submit" className="registration__btn">
           Registruotis
         </Button>
       </div>

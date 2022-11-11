@@ -3,7 +3,6 @@ import Card from "../../components/card/Card";
 import Input from "../../components/utils/Input";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-// import PostTextarea from "../../components/textarea/Textarea";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -12,12 +11,9 @@ const StyledTextarea = styled.textarea`
   height: 80px;
   border-radius: 6px;
 `;
-
 const Home = () => {
   const [question, setQuestion] = useState("");
   const navigate = useNavigate();
-  // const [answer, SetAnswer] = useState("");
-  console.log(question);
   const handleAddQuestion = () => {
     if (question) {
       const option = {
@@ -36,7 +32,12 @@ const Home = () => {
         .then((resp) => resp.json())
         .then((response) => {
           setQuestion("");
-          navigate("/");
+          if (response.error) {
+            alert("Kažkas negerai :(");
+          } else {
+            alert("Sėkmingai išsiųsta!");
+            navigate("/questions");
+          }
         })
         .catch((error) => {
           console.error(error);
@@ -54,16 +55,14 @@ const Home = () => {
         <Input type="styled" placeholder="Tema" />
         <br />
         <br />
-        <StyledTextarea />
+        <StyledTextarea onChange={(e) => setQuestion(e.target.value)} />
 
         <br />
         <br />
 
-        {/* <Link to="/questions"> */}
         <Button onClick={handleAddQuestion} type="contained">
           Išsiųsti
         </Button>
-        {/* </Link> */}
 
         <Button type="outlined">Ištrinti</Button>
       </Card>
